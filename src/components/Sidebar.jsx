@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { NAVIGATION, ROLE_LABELS } from '../data/navigation';
+import { NAVIGATION } from '../data/navigation';
 import * as Icons from 'lucide-react';
 import { LogOut } from 'lucide-react';
 
@@ -25,7 +25,7 @@ export default function Sidebar() {
             {/* Brand */}
             <div className="sidebar-brand">
                 <div className="sidebar-brand-sub">Company Portal</div>
-                <div className="sidebar-brand-name">Executable Org</div>
+                <div className="sidebar-brand-name">Exactiomark</div>
             </div>
 
             {/* Navigation */}
@@ -45,15 +45,11 @@ export default function Sidebar() {
                 ))}
             </nav>
 
-            {/* User + Logout */}
-            <div className="sidebar-user">
-                <div className="sidebar-user-avatar">{user?.avatar}</div>
-                <div className="sidebar-user-info">
-                    <div className="sidebar-user-name">{user?.name}</div>
-                    <div className="sidebar-user-role">{ROLE_LABELS[role] || role}</div>
-                </div>
-                <button onClick={handleLogout} title="Logout" style={{ color: 'rgba(255,255,255,0.7)', cursor: 'pointer' }}>
-                    <LogOut size={18} />
+            {/* Logout Button */}
+            <div className="sidebar-logout">
+                <button className="sidebar-logout-btn" onClick={handleLogout}>
+                    <LogOut size={20} />
+                    <span>Logout</span>
                 </button>
             </div>
         </aside>

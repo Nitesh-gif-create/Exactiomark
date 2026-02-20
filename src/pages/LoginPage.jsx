@@ -31,11 +31,10 @@ export default function LoginPage() {
     return (
         <div className="login-form-section">
             <div className="login-card">
-                {/* Brand */}
+                {/* Welcome heading */}
                 <div className="login-brand">
-                    <div className="login-brand-sub">Company Portal</div>
-                    <div className="login-brand-name">Executable Org</div>
-                    <p className="login-brand-tagline">Sign in to access your role-based dashboard</p>
+                    <div className="login-brand-name">Welcome Back</div>
+                    <p className="login-brand-tagline">Sign in to access your dashboard</p>
                 </div>
 
                 {error && <div className="login-error">{error}</div>}

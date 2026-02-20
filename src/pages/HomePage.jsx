@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { MapPin, Star, Calendar, ArrowRight, Users, Shield, Zap, BarChart3, Globe, Building2 } from 'lucide-react';
-import LoginPage from './LoginPage';
+import { Link } from 'react-router-dom';
+import { MapPin, Star, Calendar, ArrowRight, Users, Shield, Zap, BarChart3, Globe, Building2, LogIn, Menu, X, Rocket, Clock, CheckCircle } from 'lucide-react';
 
 const features = [
-    { icon: <Shield size={28} />, title: 'Role-Based Access', desc: 'Tailored dashboards for CEO, HR, Sprint Master, Scrum Master, Developer & DevOps.' },
+    { icon: <Shield size={28} />, title: 'Role-Based Access', desc: 'Tailored dashboards for CEO, HR, Sprint Master, Scrum Master, Developer, DevOps & QA Engineer.' },
     { icon: <Zap size={28} />, title: 'Real-Time Insights', desc: 'Live KPIs, execution health, and sprint velocity metrics at your fingertips.' },
     { icon: <BarChart3 size={28} />, title: 'Advanced Analytics', desc: 'Interactive charts, trend analysis, and data-driven decision making.' },
     { icon: <Users size={28} />, title: 'Team Management', desc: 'Hierarchical task delegation, workload tracking, and performance reviews.' },
@@ -44,38 +44,104 @@ const eventPhotos = [
 ];
 
 export default function HomePage() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
     return (
         <div className="home-page">
+            {/* ─── NAVBAR ─── */}
+            <nav className="home-navbar">
+                <div className="home-navbar-inner">
+                    {/* Left: Styled Logo */}
+                    <Link to="/" className="home-navbar-logo">
+                        <div className="home-navbar-logo-icon">EM</div>
+                        <div className="home-navbar-logo-text">
+                            <span className="home-navbar-logo-sub">Company Portal</span>
+                            <span className="home-navbar-logo-name">Exactiomark</span>
+                        </div>
+                    </Link>
+
+                    {/* Right: Nav links + Login button */}
+                    <div className={`home-navbar-right ${mobileMenuOpen ? 'open' : ''}`}>
+                        <a href="#features" className="home-navbar-link" onClick={() => setMobileMenuOpen(false)}>Features</a>
+                        <a href="#campus" className="home-navbar-link" onClick={() => setMobileMenuOpen(false)}>Workspaces</a>
+                        <a href="#events" className="home-navbar-link" onClick={() => setMobileMenuOpen(false)}>Events</a>
+                        <a href="#branches" className="home-navbar-link" onClick={() => setMobileMenuOpen(false)}>Branches</a>
+                        <Link to="/login" className="home-navbar-login-btn" onClick={() => setMobileMenuOpen(false)}>
+                            <LogIn size={16} />
+                            <span>Login</span>
+                        </Link>
+                    </div>
+
+                    {/* Mobile menu toggle */}
+                    <button className="home-navbar-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                        {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                    </button>
+                </div>
+            </nav>
+
             {/* ─── HERO SECTION ─── */}
             <section className="home-hero">
-                {/* Left: Company Brand */}
-                <div className="home-hero-left">
-                    <div className="home-hero-logo">
-                        <div className="home-logo-icon">EO</div>
-                        <div>
-                            <div className="home-logo-sub">Company Portal</div>
-                            <div className="home-logo-name">Executable Org</div>
+                {/* Animated decorations */}
+                <div className="home-hero-decorations">
+                    <div className="hero-particle hero-particle-1"></div>
+                    <div className="hero-particle hero-particle-2"></div>
+                    <div className="hero-particle hero-particle-3"></div>
+                    <div className="hero-ring hero-ring-1"></div>
+                    <div className="hero-ring hero-ring-2"></div>
+                </div>
+
+                <div className="home-hero-center">
+                    {/* Pill badge */}
+                    <div className="home-hero-pill">
+                        <Rocket size={14} />
+                        <span>Overtime Evaluation Platform — Built for Modern Teams</span>
+                    </div>
+
+                    <h1 className="home-hero-heading">
+                        Smart Overtime<br />
+                        <span className="home-hero-accent">Tracking & Evaluation</span>
+                    </h1>
+
+                    <p className="home-hero-desc">
+                        Exactiomark streamlines how organizations <strong>track, evaluate, and optimize overtime</strong> across
+                        every department. From real-time work-hour analytics to intelligent approval workflows
+                        — empower your managers with data-driven decisions and give employees transparent visibility
+                        into their contributions.
+                    </p>
+
+                    {/* Feature highlights */}
+                    <div className="home-hero-highlights">
+                        <div className="home-hero-highlight">
+                            <Clock size={16} />
+                            <span>Real-Time Hour Tracking</span>
+                        </div>
+                        <div className="home-hero-highlight">
+                            <Shield size={16} />
+                            <span>Role-Based Access Control</span>
+                        </div>
+                        <div className="home-hero-highlight">
+                            <CheckCircle size={16} />
+                            <span>Automated Approvals</span>
                         </div>
                     </div>
-                    <h1 className="home-hero-heading">
-                        Empowering Teams.<br />
-                        <span className="home-hero-accent">Executing Excellence.</span>
-                    </h1>
-                    <p className="home-hero-desc">
-                        A unified role-based platform for managing sprints, teams, and organizational intelligence.
-                        Trusted by <strong>1,400+ professionals</strong> across 6 branches nationwide.
-                    </p>
+
+                    <div className="home-hero-cta">
+                        <Link to="/login" className="home-hero-cta-btn">
+                            <LogIn size={18} />
+                            <span>Get Started — Sign In</span>
+                        </Link>
+                        <a href="#features" className="home-hero-cta-secondary">
+                            Explore Features
+                            <ArrowRight size={16} />
+                        </a>
+                    </div>
+
                     <div className="home-hero-stats">
                         <div className="home-hero-stat"><span className="home-stat-value">1,420</span><span className="home-stat-label">Employees</span></div>
                         <div className="home-hero-stat"><span className="home-stat-value">6</span><span className="home-stat-label">Offices</span></div>
                         <div className="home-hero-stat"><span className="home-stat-value">99.9%</span><span className="home-stat-label">Uptime</span></div>
                         <div className="home-hero-stat"><span className="home-stat-value">50+</span><span className="home-stat-label">Active Sprints</span></div>
                     </div>
-                </div>
-
-                {/* Right: Login */}
-                <div className="home-hero-right">
-                    <LoginPage />
                 </div>
             </section>
 
@@ -171,11 +237,11 @@ export default function HomePage() {
             <footer className="home-footer">
                 <div className="home-footer-inner">
                     <div className="home-footer-brand">
-                        <span className="home-logo-icon" style={{ width: 36, height: 36, fontSize: '0.85rem' }}>EO</span>
-                        <span style={{ fontWeight: 700 }}>Executable Org</span>
+                        <span className="home-logo-icon" style={{ width: 36, height: 36, fontSize: '0.85rem' }}>EM</span>
+                        <span style={{ fontWeight: 700 }}>Exactiomark</span>
                     </div>
                     <div className="home-footer-copy">
-                        © 2026 Executable Org Pvt. Ltd. All rights reserved.
+                        © 2026 Exactiomark Pvt. Ltd. All rights reserved.
                     </div>
                 </div>
             </footer>

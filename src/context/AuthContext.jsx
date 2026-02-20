@@ -7,12 +7,13 @@ const COMPANY_PASSWORD = 'execorg2026';
 
 /* ── Mock Users (one per role) ── */
 const MOCK_USERS = [
-    { id: 'CEO001', password: 'ceo@123', name: 'Rajesh Mehta', role: 'CEO', email: 'rajesh@executableorg.com', department: 'Executive', avatar: 'RM' },
-    { id: 'HR001', password: 'hr@123', name: 'Priya Sharma', role: 'HR', email: 'priya@executableorg.com', department: 'Human Resources', avatar: 'PS' },
-    { id: 'PM001', password: 'pm@123', name: 'Arjun Patel', role: 'PM', email: 'arjun@executableorg.com', department: 'Sprint Mgmt', avatar: 'AP' },
-    { id: 'LEAD001', password: 'lead@123', name: 'Sneha Iyer', role: 'LEAD', email: 'sneha@executableorg.com', department: 'Engineering', avatar: 'SI' },
-    { id: 'DEV001', password: 'dev@123', name: 'Vikram Singh', role: 'DEVELOPER', email: 'vikram@executableorg.com', department: 'Engineering', avatar: 'VS' },
-    { id: 'OPS001', password: 'ops@123', name: 'Ananya Reddy', role: 'DEVOPS', email: 'ananya@executableorg.com', department: 'Infrastructure', avatar: 'AR' },
+    { id: 'CEO001', password: 'ceo@123', name: 'Rajesh Mehta', role: 'CEO', email: 'rajesh@exactiomark.com', department: 'Executive', avatar: 'RM' },
+    { id: 'HR001', password: 'hr@123', name: 'Priya Sharma', role: 'HR', email: 'priya@exactiomark.com', department: 'Human Resources', avatar: 'PS' },
+    { id: 'PM001', password: 'pm@123', name: 'Arjun Patel', role: 'PM', email: 'arjun@exactiomark.com', department: 'Sprint Mgmt', avatar: 'AP' },
+    { id: 'LEAD001', password: 'lead@123', name: 'Sneha Iyer', role: 'LEAD', email: 'sneha@exactiomark.com', department: 'Engineering', avatar: 'SI' },
+    { id: 'DEV001', password: 'dev@123', name: 'Vikram Singh', role: 'DEVELOPER', email: 'vikram@exactiomark.com', department: 'Engineering', avatar: 'VS' },
+    { id: 'OPS001', password: 'ops@123', name: 'Ananya Reddy', role: 'DEVOPS', email: 'ananya@exactiomark.com', department: 'Infrastructure', avatar: 'AR' },
+    { id: 'QA001', password: 'qa@123', name: 'Divya Menon', role: 'QA', email: 'divya@exactiomark.com', department: 'Quality Assurance', avatar: 'DM' },
 ];
 
 export function AuthProvider({ children }) {

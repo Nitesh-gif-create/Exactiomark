@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Folder, CheckSquare, CheckCircle, Zap, Clock } from 'lucide-react';
 import StatsCard from '../../components/StatsCard';
 import AnimatedCard from '../../components/AnimatedCard';
@@ -36,6 +37,7 @@ const signals = [
 ];
 
 export default function PMDashboard() {
+    const navigate = useNavigate();
     return (
         <div>
             {/* Stats */}
@@ -95,7 +97,7 @@ export default function PMDashboard() {
                 <AnimatedCard delay={0.46}>
                     <div className="card-header">
                         <span className="card-title">Pending Approvals</span>
-                        <button className="btn btn-sm btn-secondary">View All</button>
+                        <button className="btn btn-sm btn-secondary" onClick={() => navigate('/approvals')}>View All</button>
                     </div>
                     <div className="card-body" style={{ padding: 0 }}>
                         <table className="table">
